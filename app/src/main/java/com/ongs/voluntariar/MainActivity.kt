@@ -8,18 +8,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.firebase.auth.FirebaseAuth
 import com.ongs.voluntariar.screens.BmiScreen
 import com.ongs.voluntariar.screens.HomeScreen
+import com.ongs.voluntariar.screens.OrgInfoScreen
 import com.ongs.voluntariar.screens.SignInActivity
 import com.ongs.voluntariar.ui.theme.VoluntariarTheme
 
 class MainActivity : ComponentActivity() {
-    private lateinit var auth: FirebaseAuth
+    //private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        auth = FirebaseAuth.getInstance()
+        //auth = FirebaseAuth.getInstance()
 
         enableEdgeToEdge()
         setContent {
@@ -31,7 +31,8 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable(route = "singin") { SignInActivity(navController) }
                     composable(route = "home") { HomeScreen(navController) }
-                    composable(route = "bmi") { BmiScreen() }
+                    composable(route = "bmi") { BmiScreen(navController) }
+                    composable(route = "orgInfo") { OrgInfoScreen(navController) }
                 }
             }
         }

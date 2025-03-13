@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -76,8 +75,4 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.androidx.navigation.compose)
-
-    //auth
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
 }

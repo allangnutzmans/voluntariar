@@ -9,12 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.content.pm.ShortcutInfoCompat.Surface
+import androidx.navigation.NavController
 
 @Composable
-fun BmiScreen(modifier: Modifier = Modifier) {
+fun BmiScreen(navController: NavController?) {
     Surface(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
@@ -32,5 +32,5 @@ fun BmiScreen(modifier: Modifier = Modifier) {
 @Preview(showSystemUi = true)
 @Composable
 private fun BmiScreenPreview() {
-    BmiScreen()
+    BmiScreen(null)
 }
