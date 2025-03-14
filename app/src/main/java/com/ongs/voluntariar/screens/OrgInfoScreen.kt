@@ -1,17 +1,19 @@
 package com.ongs.voluntariar.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -49,15 +51,14 @@ fun OrgInfoScreen(navController: NavController?){
             Box(
                 modifier = Modifier
                     .background(color = Color(0xffaaaaaa))
-                    .padding(top = 100.dp, bottom = 2 .dp)
+                    .padding(top = 100.dp, bottom = 2.dp)
 
             )
-            Text(
-                text = stringResource(R.string.welcome),
-                fontSize = 32.sp,
-                color = Color.White,
-                fontWeight = FontWeight.Bold
-            )
+            Card (
+                modifier = Modifier
+                    .fillMaxWidth()
+
+            ){}
             Card (
                 modifier = Modifier
                     .fillMaxSize()
@@ -67,6 +68,12 @@ fun OrgInfoScreen(navController: NavController?){
                     topEnd = 30.dp,
                 )
             ) {
+                Text(
+                    text = stringResource(R.string.welcome),
+                    fontSize = 32.sp,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
                 Column (
                     Modifier
                         .fillMaxSize()
@@ -94,18 +101,29 @@ fun OrgInfoScreen(navController: NavController?){
 
                         )
                     }
-                    Row (
+                    Column (
                         modifier = Modifier
-                            .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceAround
+                            .fillMaxWidth()
+                            .padding(horizontal = 5.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(15.dp)
                     ){
-                        Button(onClick = { /*TODO*/ }) {
-                            Text(text = "Back")
+                        Button(
+                            modifier = Modifier
+                                .height(50.dp)
+                                .fillMaxWidth(),
+                            onClick = { /*TODO*/ }
+                        ) {
+                            Text(text = "Donate")
                         }
-                        Button(onClick = {
+                        OutlinedButton(modifier = Modifier
+                            .height(50.dp)
+                            .fillMaxWidth(),
+                            border = BorderStroke(2.dp, ButtonDefaults.outlinedButtonColors().contentColor),
+                            onClick = {
                             navController!!.navigate("bmi")
                         }) {
-                            Text(text = stringResource(R.string.next),)
+                            Text(text = "Contact")
                         }
                     }
 
