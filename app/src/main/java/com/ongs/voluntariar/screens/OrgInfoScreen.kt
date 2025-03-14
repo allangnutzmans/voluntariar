@@ -121,7 +121,7 @@ fun OrgInfoScreen(navController: NavController?){
     }
 }
 
-@Preview(showSystemUi = true, device = "id:Nexus One")
+@Preview(showSystemUi = true)
 @Composable
 private fun OrgInfoScreenPreview(){
     OrgInfoScreen(null)
