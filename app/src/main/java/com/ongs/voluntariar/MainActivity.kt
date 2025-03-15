@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ongs.voluntariar.screens.BmiScreen
+import com.ongs.voluntariar.screens.ExploreScreen
 import com.ongs.voluntariar.screens.HomeScreen
 import com.ongs.voluntariar.screens.OrgInfoScreen
 import com.ongs.voluntariar.screens.SignInActivity
@@ -33,6 +34,7 @@ class MainActivity : ComponentActivity() {
                     composable(route = "home") { HomeScreen(navController) }
                     composable(route = "bmi") { BmiScreen(navController) }
                     composable(route = "orgInfo") { OrgInfoScreen(navController) }
+                    composable(route = "explore") { ExploreScreen(navController) }
                 }
             }
         }
