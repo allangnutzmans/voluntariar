@@ -12,6 +12,7 @@ import com.ongs.voluntariar.screens.BmiScreen
 import com.ongs.voluntariar.screens.ExploreScreen
 import com.ongs.voluntariar.screens.HomeScreen
 import com.ongs.voluntariar.screens.OrgInfoScreen
+import com.ongs.voluntariar.screens.SavedScreen
 import com.ongs.voluntariar.screens.SignInActivity
 import com.ongs.voluntariar.ui.theme.VoluntariarTheme
 
@@ -35,6 +36,7 @@ class MainActivity : ComponentActivity() {
                     composable(route = "bmi") { BmiScreen(navController) }
                     composable(route = "orgInfo") { OrgInfoScreen(navController) }
                     composable(route = "explore") { ExploreScreen(navController) }
+                    composable(route = "saved") { SavedScreen(navController) }
                 }
             }
         }
