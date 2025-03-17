@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "283621405045",
-    "project_id": "voluntariar-fiap",
-    "storage_bucket": "voluntariar-fiap.firebasestorage.app"
+    "project_number": "1016396626402",
+    "project_id": "auth-voluntariar",
+    "storage_bucket": "auth-voluntariar.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:283621405045:android:513160360055639a14e33c",
+        "mobilesdk_app_id": "1:1016396626402:android:b9497b2ae729220b8861bb",
         "android_client_info": {
           "package_name": "com.ongs.voluntariar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "283621405045-1nc814hp2r37m1d2704sfgen2auiveks.apps.googleusercontent.com",
+          "client_id": "1016396626402-8lhnddpk8eap5b1eti5cifs26od36ehf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ongs.voluntariar",
+            "certificate_hash": "92de733c018acf884abf2125c467c8c73910c74f"
+          }
+        },
+        {
+          "client_id": "1016396626402-keqq6fcamcun4kkrrlqtdrjdu54snl20.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAqnGM7y3WrexbtxO3CR_HqoQHJaOgjBco"
+          "current_key": "AIzaSyDwECbChG6e6AKLFBSexHEisDmu_tJZVe8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "283621405045-1nc814hp2r37m1d2704sfgen2auiveks.apps.googleusercontent.com",
+              "client_id": "1016396626402-keqq6fcamcun4kkrrlqtdrjdu54snl20.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
