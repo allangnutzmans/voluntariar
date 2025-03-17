@@ -11,6 +11,7 @@ import com.ongs.voluntariar.components.BottomNavigationBar
 import com.ongs.voluntariar.screens.CommunityScreen
 import com.ongs.voluntariar.screens.ExploreScreen
 import com.ongs.voluntariar.screens.OrgInfoScreen
+import com.ongs.voluntariar.screens.SavedScreen
 
 @Composable
 fun MainLayout(navController: NavHostController) {
@@ -28,7 +29,8 @@ fun MainLayout(navController: NavHostController) {
             //composable(route = "home") { HomeScreen(navController) }
             composable(route = "explore") { ExploreScreen(navController) }
             composable(route = "orgInfo") { OrgInfoScreen(navController) }
-            composable(route = "community") { CommunityScreen(navController) }
+            composable(route = "community") { CommunityScreen() }
+            composable(route = "saved") { SavedScreen(navController) }
         }
     }
 }

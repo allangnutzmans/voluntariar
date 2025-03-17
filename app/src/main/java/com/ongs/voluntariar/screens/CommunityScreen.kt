@@ -16,12 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.ongs.voluntariar.components.CommunityCard
 
 data class Ong(
-    val title: String,
-    val description: String
+    val name: String,
+    val location: String
 )
 
 val ongs = listOf(
@@ -32,7 +31,7 @@ val ongs = listOf(
 )
 
 @Composable
-fun CommunityScreen(navController: NavController?){
+fun CommunityScreen(){
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -58,8 +57,8 @@ fun CommunityScreen(navController: NavController?){
                             .padding(bottom = 12.dp)
                     ){
                         CommunityCard(
-                            title = ong.title,
-                            description = ong.description,
+                            title = ong.name,
+                            description = ong.location,
                         )
                     }
                 }
@@ -71,5 +70,5 @@ fun CommunityScreen(navController: NavController?){
 @Preview
 @Composable
 private fun CommunityScreenPreview() {
-    CommunityScreen(null)
+    CommunityScreen()
 }
