@@ -26,7 +26,7 @@ import androidx.navigation.NavController
 import com.ongs.voluntariar.R
 
 @Composable
-fun SignInActivity(navController: NavController?){
+fun SignInScreen(navController: NavController?){
     Box(
         modifier = Modifier
             .background(color = Color(0xffaaaaaa))
@@ -105,6 +105,6 @@ fun SignInActivity(navController: NavController?){
 
 @Preview(showSystemUi = true)
 @Composable
-private fun SignInActivityPreview(){
-    SignInActivity(null)
+private fun SignInScreenPreview(){
+    SignInScreen(null)
 }

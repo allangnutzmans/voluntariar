@@ -6,18 +6,22 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,10 +36,6 @@ import com.ongs.voluntariar.R
 
 @Composable
 fun OrgInfoScreen(navController: NavController?){
-    val yourNameState = remember {
-        mutableStateOf("")
-    }
-
     Box(
         modifier = Modifier
             .background(color = Color(0xffaaaaaa))
@@ -63,29 +63,54 @@ fun OrgInfoScreen(navController: NavController?){
                     verticalArrangement = Arrangement.SpaceBetween,
                 ){
                     Column (
+                        Modifier
+                            .fillMaxWidth(),
                         verticalArrangement = Arrangement.spacedBy(30.dp)
                     ){
                         Column {
-                            Modifier
-                                .fillMaxWidth()
-                            Text(
-                                text = "Ong Ser e Crescer",
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                            Text(
-                                text = "Rua Barão de Campinas - Campinas-SP,\n 13101-180",
-                                fontSize = 12.sp,
-                                modifier = Modifier
-                                    .padding(0.dp, 5.dp, 0.dp, 0.dp)
-                            )
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Column (
+                                    modifier = Modifier
+                                        .padding(top = 5.dp)
+                                ){
+                                    Text(
+                                        text = "Ong Ser e Crescer",
+                                        fontSize = 24.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                    Text(
+                                        text = "Rua Barão de Campinas - Campinas-SP,\n 13101-180",
+                                        fontSize = 12.sp,
+                                        modifier = Modifier
+                                            .padding(0.dp, 5.dp, 0.dp, 0.dp)
+                                    )
+                                }
+
+                                Row {
+                                    IconButton(onClick = { /*TODO*/ }) {
+                                        Icon(
+                                            imageVector = Icons.Default.FavoriteBorder,
+                                            contentDescription = "Favorito"
+                                        )
+                                    }
+                                    IconButton(onClick = { /*TODO*/ }) {
+                                        Icon(
+                                            imageVector = Icons.Default.Share,
+                                            contentDescription = "Compartilhar"
+                                        )
+                                    }
+                                }
+                            }
                         }
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
                         ) {
                             Text(
-                                text = "About",
+                                text = "Sobre",
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight.Bold
                             )
@@ -110,7 +135,7 @@ fun OrgInfoScreen(navController: NavController?){
                                 .fillMaxWidth(),
                             onClick = { /*TODO*/ }
                         ) {
-                            Text(text = "Donate")
+                            Text(text = "Doar")
                         }
                         OutlinedButton(modifier = Modifier
                             .height(50.dp)
@@ -119,7 +144,7 @@ fun OrgInfoScreen(navController: NavController?){
                             onClick = {
                             navController!!.navigate("bmi")
                         }) {
-                            Text(text = "Contact")
+                            Text(text = "Entrar em contato")
                         }
                     }
             }
