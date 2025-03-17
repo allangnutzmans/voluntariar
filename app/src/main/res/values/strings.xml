@@ -3,5 +3,7 @@
     <string name="welcome">Welcome</string>
     <string name="your_name">What \'s your name?</string>
     <string name="next">Next</string>
+    <string name="find_ongs">Find ONGs</string>
+    <string name="visit">Visit</string>
     <string name="title_activity_maps">MapsActivity</string>
 </resources>

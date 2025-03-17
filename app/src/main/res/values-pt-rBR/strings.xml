@@ -3,4 +3,6 @@
     <string name="welcome">Bem-vindo!</string>
     <string name="your_name">Qual é o seu nome?</string>
     <string name="next">Próximo</string>
+    <string name="find_ongs">Encontrar ONGs</string>
+    <string name="visit">Visitar</string>
 </resources>
