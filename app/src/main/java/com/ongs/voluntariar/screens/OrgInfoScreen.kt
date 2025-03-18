@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ongs.voluntariar.R
+import com.ongs.voluntariar.ui.theme.Purple80
 
 @Composable
 fun OrgInfoScreen(navController: NavController?){
@@ -133,6 +134,9 @@ fun OrgInfoScreen(navController: NavController?){
                             modifier = Modifier
                                 .height(50.dp)
                                 .fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Purple80
+                            ),
                             onClick = { /*TODO*/ }
                         ) {
                             Text(text = "Doar")
@@ -140,11 +144,9 @@ fun OrgInfoScreen(navController: NavController?){
                         OutlinedButton(modifier = Modifier
                             .height(50.dp)
                             .fillMaxWidth(),
-                            border = BorderStroke(2.dp, ButtonDefaults.outlinedButtonColors().contentColor),
-                            onClick = {
-                            navController!!.navigate("bmi")
-                        }) {
-                            Text(text = "Entrar em contato")
+                            border = BorderStroke(2.dp, Purple80),
+                            onClick = {}) {
+                            Text(text = "Entrar em contato", color = Purple80)
                         }
                     }
             }
