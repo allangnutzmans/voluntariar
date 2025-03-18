@@ -2,9 +2,9 @@ package com.ongs.voluntariar.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.People
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -23,7 +23,7 @@ fun BottomNavigationBar(navController: NavHostController) {
         NavigationBarItem(
             icon = {
                 Icon(
-                    Icons.Filled.Explore,
+                    Icons.Filled.Search,
                     contentDescription = "Explore",
                     tint = if (navController.currentBackStackEntryAsState().value?.destination?.route == "explore") Purple80 else Color.Gray
                 )
