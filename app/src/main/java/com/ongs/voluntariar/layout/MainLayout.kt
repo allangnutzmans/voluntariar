@@ -1,3 +1,4 @@
+
 package com.ongs.voluntariar.layout
 
 import androidx.compose.foundation.layout.padding
@@ -7,30 +8,34 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.google.firebase.auth.FirebaseAuth
 import com.ongs.voluntariar.components.BottomNavigationBar
-import com.ongs.voluntariar.screens.CommunityScreen
-import com.ongs.voluntariar.screens.ExploreScreen
-import com.ongs.voluntariar.screens.OrgInfoScreen
-import com.ongs.voluntariar.screens.SavedScreen
+import com.ongs.voluntariar.screens.*
 
 @Composable
 fun MainLayout(navController: NavHostController) {
+    val currentUser = FirebaseAuth.getInstance().currentUser
+    val showBottomBar = currentUser != null
+
     Scaffold(
         bottomBar = {
-            BottomNavigationBar(navController = navController)
+            if (showBottomBar) {
+                BottomNavigationBar(navController)
+            }
         }
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = "explore",
+            startDestination = if (currentUser != null) "explore" else "signIn",
             modifier = Modifier.padding(innerPadding)
         ) {
-            //composable(route = "signin") { SignInScreen(navController) }
-            //composable(route = "home") { HomeScreen(navController) }
-            composable(route = "explore") { ExploreScreen(navController) }
-            composable(route = "orgInfo") { OrgInfoScreen(navController) }
-            composable(route = "community") { CommunityScreen() }
-            composable(route = "saved") { SavedScreen(navController) }
+            composable("signIn") { SignInScreen(navController) }
+            composable("register") { RegisterScreen(navController) }
+            composable("explore") { ExploreScreen(navController) }
+            composable("profile") { ProfileScreen(navController) }
+            composable("saved") { SavedScreen(navController) }
+            composable("community") { CommunityScreen() }
+            composable("orgInfo") { OrgInfoScreen(navController) }
         }
     }
 }

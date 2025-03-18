@@ -1,5 +1,6 @@
 package com.ongs.voluntariar.components
 
+import com.google.android.libraries.places.api.model.Place.Field
 import android.Manifest
 import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -7,7 +8,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -105,6 +105,7 @@ fun MapComponent() {
                                 Place.Field.NAME,
                                 Place.Field.LAT_LNG,
                                 Place.Field.ADDRESS
+
                             )
                             val request = FindCurrentPlaceRequest.newInstance(placeFields)
                             placesClient.findCurrentPlace(request).addOnCompleteListener { task ->

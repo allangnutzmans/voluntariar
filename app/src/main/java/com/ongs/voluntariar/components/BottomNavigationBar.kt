@@ -4,6 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.People
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -83,6 +84,17 @@ fun BottomNavigationBar(navController: NavHostController) {
                     launchSingleTop = true
                 }
             }
+        )
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    Icons.Filled.Person,
+                    contentDescription = "Perfil",
+                    tint = if (navController.currentBackStackEntryAsState() .value?.destination?.route == "profile") Purple80 else Color.Gray
+                )
+            },
+            selected = navController.currentBackStackEntryAsState().value?.destination?.route == "profile",
+            onClick = { navController.navigate("profile") }
         )
     }
 }
