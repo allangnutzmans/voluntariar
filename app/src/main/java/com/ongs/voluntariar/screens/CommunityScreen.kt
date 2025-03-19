@@ -16,18 +16,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.ongs.voluntariar.R
 import com.ongs.voluntariar.components.CommunityCard
 
 data class Ong(
     val name: String,
-    val location: String
+    val location: String,
+    val imageRes: Int? = null
 )
 
 val ongs = listOf(
-    Ong("Ong Ser e Crescer", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."),
-    Ong("Ong Ajudar Sempre", "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus sagittis lacus vel augue laoreet rutrum faucibus."),
-    Ong("Ong Sorriso", "Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."),
-    Ong("Ong Mundo Melhor", "Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor.")
+    Ong("Ong Ser e Crescer", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", imageRes = R.drawable.ong ),
+    Ong("Ong Ajudar Sempre", "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus sagittis lacus vel augue laoreet rutrum faucibus.", imageRes = R.drawable.ong1),
+    Ong("Ong Sorriso", "Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.", imageRes = null),
+    Ong("Ong Mundo Melhor", "Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor.", imageRes = null)
 )
 
 @Composable
@@ -59,6 +61,7 @@ fun CommunityScreen(){
                         CommunityCard(
                             title = ong.name,
                             description = ong.location,
+                            imageRes = ong.imageRes  ?: R.drawable.ong,
                         )
                     }
                 }
