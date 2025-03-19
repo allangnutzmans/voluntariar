@@ -28,7 +28,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -36,7 +35,12 @@ import com.ongs.voluntariar.R
 import com.ongs.voluntariar.ui.theme.Purple80
 
 @Composable
-fun OrgInfoScreen(navController: NavController?){
+fun OrgInfoScreen(
+    name: String,
+    location: String,
+    about: String,
+    navController: NavController?
+){
     Box(
         modifier = Modifier
             .background(color = Color(0xffaaaaaa))
@@ -78,12 +82,12 @@ fun OrgInfoScreen(navController: NavController?){
                                         .padding(top = 5.dp)
                                 ){
                                     Text(
-                                        text = "Ong Ser e Crescer",
+                                        text = name,
                                         fontSize = 24.sp,
                                         fontWeight = FontWeight.Bold
                                     )
                                     Text(
-                                        text = "Rua Barão de Campinas - Campinas-SP,\n 13101-180",
+                                        text = location,
                                         fontSize = 12.sp,
                                         modifier = Modifier
                                             .padding(0.dp, 5.dp, 0.dp, 0.dp)
@@ -116,7 +120,7 @@ fun OrgInfoScreen(navController: NavController?){
                                 fontWeight = FontWeight.Bold
                             )
                             Text(
-                                text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate \n",
+                                text = about,
                                 fontSize = 15.sp,
                                 modifier = Modifier
                                     .padding(0.dp, 10.dp, 0.dp, 0.dp)
@@ -160,8 +164,9 @@ fun OrgInfoScreen(navController: NavController?){
     }
 }
 
+/*
 @Preview(showSystemUi = true)
 @Composable
 private fun OrgInfoScreenPreview(){
     OrgInfoScreen(null)
-}
+}*/

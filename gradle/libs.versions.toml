@@ -1,6 +1,6 @@
 [versions]
 activityComposeVersion = "1.9.0"
-agp = "8.9.0"
+agp = "8.5.0"
 coilComposeVersion = "2.3.0"
 compiler = "2.0.0"
 coreKtxVersion = "1.15.0"

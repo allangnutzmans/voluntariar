@@ -2,7 +2,6 @@ package com.ongs.voluntariar.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
@@ -64,22 +63,6 @@ fun BottomNavigationBar(navController: NavHostController) {
             selected = navController.currentBackStackEntryAsState().value?.destination?.route == "community",
             onClick = {
                 navController.navigate("community") {
-                    popUpTo(navController.graph.startDestinationId)
-                    launchSingleTop = true
-                }
-            }
-        )
-        NavigationBarItem(
-            icon = {
-                Icon(
-                    Icons.Filled.Info,
-                    contentDescription = "OrgInfo",
-                    tint = if (navController.currentBackStackEntryAsState().value?.destination?.route == "orgInfo") Purple80 else Color.Gray
-                )
-            },
-            selected = navController.currentBackStackEntryAsState().value?.destination?.route == "orgInfo",
-            onClick = {
-                navController.navigate("orgInfo") {
                     popUpTo(navController.graph.startDestinationId)
                     launchSingleTop = true
                 }

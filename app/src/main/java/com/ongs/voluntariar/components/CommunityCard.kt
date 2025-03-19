@@ -34,14 +34,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.ongs.voluntariar.R
 
 @Composable
 fun CommunityCard(
-    title: String,
+    name: String,
     description: String,
-    imageRes: Int? = null
-) {
+    imageRes: Int? = null,
+    location: String,
+    about: String,
+    navController: NavController
+    ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(0.dp),
@@ -66,7 +70,7 @@ fun CommunityCard(
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = title,
+                        text = name,
                         fontWeight = FontWeight.Bold,
                         fontSize = 18.sp
                     )
@@ -123,7 +127,9 @@ fun CommunityCard(
                 OutlinedButton(
                     shape = RoundedCornerShape(50),
                     border = BorderStroke(2.dp, Color(0xFF4A004A)),
-                    onClick = { /* TODO */ },
+                    onClick = {
+                        navController.navigate("orgInfo/${name}/${location}/${about}")
+                    },
                     modifier = Modifier.align(Alignment.CenterVertically)
                 ) {
                     Text(text = "Entrar em contato", color = Color(0xFF4A004A))
