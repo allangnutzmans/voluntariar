@@ -128,7 +128,7 @@ fun CommunityCard(
                     shape = RoundedCornerShape(50),
                     border = BorderStroke(2.dp, Color(0xFF4A004A)),
                     onClick = {
-                        navController.navigate("orgInfo/${name}/${location}/${about}")
+                        navController.navigate("orgInfo/${name}/${location}/${about}/${imageRes}")
                     },
                     modifier = Modifier.align(Alignment.CenterVertically)
                 ) {

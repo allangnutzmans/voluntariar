@@ -11,9 +11,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.google.firebase.auth.FirebaseAuth
+import com.ongs.voluntariar.R
 import com.ongs.voluntariar.components.BottomNavigationBar
 import com.ongs.voluntariar.screens.CommunityScreen
 import com.ongs.voluntariar.screens.ExploreScreen
+import com.ongs.voluntariar.screens.MapScreen
 import com.ongs.voluntariar.screens.OrgInfoScreen
 import com.ongs.voluntariar.screens.ProfileScreen
 import com.ongs.voluntariar.screens.RegisterScreen
@@ -43,18 +45,21 @@ fun MainLayout(navController: NavHostController) {
             composable("profile") { ProfileScreen(navController) }
             composable("saved") { SavedScreen(navController) }
             composable("community") { CommunityScreen(navController) }
+            composable("maps") { MapScreen(navController) }
             composable(
-                "orgInfo/{name}/{location}/{about}",
+                "orgInfo/{name}/{location}/{about}/{imageRes}",
                 arguments = listOf(
                     navArgument("name") { type = NavType.StringType },
                     navArgument("location") { type = NavType.StringType },
-                    navArgument("about") { type = NavType.StringType }
+                    navArgument("about") { type = NavType.StringType },
+                    navArgument("imageRes") { type = NavType.IntType }
                 )
             ) { backStackEntry ->
                 OrgInfoScreen(
                     name = backStackEntry.arguments?.getString("name") ?: "",
                     location = backStackEntry.arguments?.getString("location") ?: "",
                     about = backStackEntry.arguments?.getString("about") ?: "",
+                    imageRes = backStackEntry.arguments?.getInt("imageRes") ?: R.drawable.img,
                     navController = navController
                 )
             }

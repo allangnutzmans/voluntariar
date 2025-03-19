@@ -52,6 +52,22 @@ fun BottomNavigationBar(navController: NavHostController) {
                 }
             }
         )
+        /*NavigationBarItem(
+            icon = {
+                Icon(
+                    Icons.Filled.Map,
+                    contentDescription = "Maps",
+                    tint = if (navController.currentBackStackEntryAsState().value?.destination?.route == "maps") Purple80 else Color.Gray
+                )
+            },
+            selected = navController.currentBackStackEntryAsState().value?.destination?.route == "maps",
+            onClick = {
+                navController.navigate("maps") {
+                    popUpTo(navController.graph.startDestinationId)
+                    launchSingleTop = true
+                }
+            }
+        )*/
         NavigationBarItem(
             icon = {
                 Icon(

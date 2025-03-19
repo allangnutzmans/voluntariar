@@ -39,6 +39,7 @@ fun OrgInfoScreen(
     name: String,
     location: String,
     about: String,
+    imageRes: Int,
     navController: NavController?
 ){
     Box(
@@ -55,7 +56,7 @@ fun OrgInfoScreen(
             horizontalAlignment = Alignment.CenterHorizontally
     ) {
             Image(
-                painter = painterResource(id = R.drawable.img),
+                painterResource(id = imageRes ?: R.drawable.img),
                 contentDescription = "Ong Image",
                 modifier = Modifier
                     .fillMaxWidth()

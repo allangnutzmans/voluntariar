@@ -1,6 +1,7 @@
 package com.ongs.voluntariar.screens
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,6 +33,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -48,10 +51,34 @@ fun SavedScreen(navController: NavController?){
     }
 
     val ongList = listOf(
-        Ong("Ong Ser e Crescer", "Rua Barão de Campinas - Campinas-SP, 13101-180", "Lorem ipsum dolor sit amet...","Lorem ipsum dolor sit amet..." ),
-        Ong("Ong Ajudar Sempre", "Pellentesque habitant morbi...", "Vivamus sagittis lacus vel augue...", "Lorem ipsum dolor sit amet..."),
-        Ong("Ong Sorriso", "Curabitur blandit tempus...", "Integer posuere erat a ante...", "Lorem ipsum dolor sit amet..."),
-        Ong("Ong Mundo Melhor", "Vestibulum id ligula porta...", "Curabitur blandit tempus porttitor...", "Lorem ipsum dolor sit amet...")
+        Ong(
+            name = "Instituto Esperança",
+            location = "Av. das Nações, 123 - São Paulo, SP, 01000-000",
+            post = "Promovendo a inclusão social e educação para crianças.",
+            about = "O Instituto Esperança atua há mais de 10 anos oferecendo suporte educacional para crianças em situação de vulnerabilidade.",
+            imageRes = R.drawable.ong1
+        ),
+        Ong(
+            name = "Projeto Vida Nova",
+            location = "Rua das Flores, 456 - Rio de Janeiro, RJ, 22000-000",
+            post = "Oferecendo apoio psicológico para famílias carentes.",
+            about = "Nosso objetivo é proporcionar assistência psicológica gratuita para famílias em situação de risco.",
+            imageRes = R.drawable.ong
+        ),
+        Ong(
+            name = "Abrace Mais",
+            location = "Praça da Liberdade, 789 - Belo Horizonte, MG, 30100-000",
+            post = "Combate à fome e distribuição de cestas básicas.",
+            about = "Abrace Mais trabalha na arrecadação e distribuição de alimentos para comunidades carentes.",
+            imageRes = R.drawable.img
+        ),
+        Ong(
+            name = "Sementes do Futuro",
+            location = "Rua do Sol, 321 - Salvador, BA, 40000-000",
+            post = "Incentivando a educação e a cultura nas periferias.",
+            about = "O projeto leva cultura e oportunidades para crianças e adolescentes através de atividades educacionais e recreativas.",
+            imageRes = R.drawable.img
+        )
     )
 
     Column(modifier = Modifier.fillMaxSize()
@@ -105,7 +132,16 @@ fun OngSavedCard(ong: Ong, navController: NavController) {
                     modifier = Modifier
                         .size(80.dp)
                         .background(Color.LightGray, RoundedCornerShape(8.dp))
-                )
+                ) {
+                    Image(
+                        painter = painterResource(id = ong.imageRes ?: R.drawable.img),
+                        contentDescription = "Imagem da ONG",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(120.dp), // Sem padding aqui
+                        contentScale = ContentScale.Crop
+                    )
+                }
 
                 Spacer(modifier = Modifier.width(12.dp))
 
@@ -131,7 +167,7 @@ fun OngSavedCard(ong: Ong, navController: NavController) {
             ) {
                 Button(
                     onClick = {
-                        navController.navigate("orgInfo/${ong.name}/${ong.location}/${ong.about}")
+                        navController.navigate("orgInfo/${ong.name}/${ong.location}/${ong.about}/${ong.imageRes}")
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4A1056)),
                     modifier = Modifier

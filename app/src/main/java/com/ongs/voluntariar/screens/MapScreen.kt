@@ -5,10 +5,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.ongs.voluntariar.components.MapComponent
 
 @Composable
-fun MapScreen() {
+fun MapScreen(navController: NavController?) {
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -19,5 +20,5 @@ fun MapScreen() {
 @Preview
 @Composable
 private fun MapScreenPreview() {
-    MapScreen()
+    MapScreen(null)
 }
