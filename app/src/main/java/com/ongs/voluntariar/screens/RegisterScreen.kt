@@ -33,6 +33,7 @@ fun RegisterScreen(navController: NavController) {
 
     val accountTypes = listOf("Voluntário", "ONG", "Empresa")
     val borderColor = Color(0xFF4A0247)
+    var expanded by remember { mutableStateOf(false) }
 
 
     Column(
@@ -75,23 +76,40 @@ fun RegisterScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(8.dp))
 
         ExposedDropdownMenuBox(
-            expanded = false,
-            onExpandedChange = {}
+            expanded = expanded,
+            onExpandedChange = { expanded = !expanded }
         ) {
             OutlinedTextField(
                 value = accountType,
                 onValueChange = {},
                 readOnly = true,
                 label = { Text("Tipo de conta") },
+                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
                 shape = RoundedCornerShape(8.dp),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .menuAnchor(),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = borderColor,
                     unfocusedBorderColor = borderColor
                 )
             )
-        }
 
+            ExposedDropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                accountTypes.forEach { type ->
+                    DropdownMenuItem(
+                        text = { Text(text = type) },
+                        onClick = {
+                            accountType = type
+                            expanded = false
+                        }
+                    )
+                }
+            }
+        }
         Spacer(modifier = Modifier.height(8.dp))
 
         // Email
